@@ -45,6 +45,12 @@ return 0;
 |**************************************************/
 fIncluir(){
 
+	FILE p_arq*;
+
+	p_arq = fopen("agenda.txt", "a");
+
+	fclose(p_arq);
+
 return printf("Teste de incluir");
 }
 /***************************************************

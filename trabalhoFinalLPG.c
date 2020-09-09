@@ -47,8 +47,49 @@ fIncluir(){
 
 	FILE p_arq*;
 
+	int id;
+	int nCount = 0;
+
+	char c;
+	char registro = '\n';
+	char nome;
+	char email;
+	char celular;
+	char gmailchar = "@gmail.com";
+	char hotmailchar = "@hotmail.com";
+	char outloo1char = "@outlook.com";
+	char outlook2char = "@outlook.com.br";
+	char yahoo1char = "@yahoo.com";
+	char yahoo2char = "@yahoo.com.br";
+
 	p_arq = fopen("agenda.txt", "a");
 
+	while(fread (&c, sizeof(char), 1, p_arq)) {
+        if(c == registro) {
+           nCount++;
+        }
+    }
+
+	id = nCount/4;
+
+	printf("Nome:\n");
+	scanf("%s", nome);
+
+	printf("E-mail:\n");
+	scanf("%s", email);
+
+	while(strstr(email, gmailchar) == NULL || strstr(email, hotmailchar) == NULL || strstr(email, outloo1char) == NULL || strstr(email, outlook2char) == NULL|| strstr(email, yahoo1char) == NULL || strstr(email, yahoo2char) == NULL){
+		printf("E-mail inválido!\nDigite um e-mail válido:\n")
+		scanf("%s", email);
+	}
+
+	printf("Celular:");
+	scanf("%s", celular);
+
+	fputs(id, p_arq);
+	fputs(id, p_arq);
+	fputs(id, p_arq);
+	fputs(id, p_arq);
 	fclose(p_arq);
 
 return printf("Teste de incluir");
